@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void calculate(View v){
 
+        String tag = v.getTag().toString();
+        lblAnswer.setText(tag);
+
 
         String value1 = txtValue1.getText().toString();
         String value2 = txtValue2.getText().toString();
@@ -32,24 +35,19 @@ public class MainActivity extends AppCompatActivity {
         double x = Double.parseDouble(value1);
         double y = Double.parseDouble(value2);
 
+        double ans = 0;
 
-        lblAnswer.setText("Answer is:"+ (x + y));
+        switch (tag){
+            case "add" : ans = x + y ; break;
+            case "sub" : ans = x - y ; break;
+            case "mul" : ans = x * y ; break;
+            case "div" : ans = x / y ; break;
 
-    }
-
-
-    public void clr (View v) {
-        int answer = 0;
-
-        answer = 0;
-
+        }
 
 
-        lblAnswer.setText("" + answer);
-        txtValue1.setText("");
-        txtValue2.setText("");
 
-
+        lblAnswer.setText("Answer is:"+ ans);
 
     }
 
